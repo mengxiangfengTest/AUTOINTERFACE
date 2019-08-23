@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口管理工具</title>
+</head>
+<body>
+    <hl>接口管理</hl>
+    <form method="post" action="/login_action/">
+        <input name="username" type="text" placeholder="请输入用户名" ><br>
+        <input name="password" type="password" placeholder="请您输入密码" ><br>
+        {{ error }}<br>
+        <button id="btn" type="submit">登录</button>
+        <button id="btn1" type="submit">注册</button>
+
+        {% csrf_token %}
+    </form>
+</body>
+</html>

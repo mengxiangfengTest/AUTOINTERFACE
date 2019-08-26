@@ -1,10 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Event Manage Page</title>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title> 保准牛测试接口管理</title>
 </head>
-<body>
-    <hl>Login Success</hl>
+
+<body role="document">
+<!-- 导航栏 -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/event_manage/">接口管理工具</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">仓库</a> </li>
+                <li class="active1"><a href="#">团队</a> </li>
+                <li class="active2"><a href="#">接口</a> </li>
+                <li class="active3"><a href="#">状态</a> </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">{{ user }}</a> </li>
+                <li><a href="/logout/">退出</a> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--仓库列表-->
+<div class="row" style="padding-top: 80px;">
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>id</th><th>名称</th><th>简介</th><th>成员</th><th>协同仓库</th><th>状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for warehouse in warehouses %}
+            <tr>
+                <td>{{ warehouse.id }}</td>
+                <td>{{ warehouse.name }}</td>
+                <td>{{ warehouse.description }}</td>
+                <td>{{ warehouse.member }}</td>
+                <td>{{ warehouse.dbl }}</td>
+                <td>{{ warehouse.status }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
